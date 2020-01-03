@@ -3,7 +3,7 @@
 #include <cstring>
 #include <limits>
 struct TString{
-    static const int n = 66;
+    static const int n = 65;
     char str[n]{};
     TString(){
         memset(str, 0, n);
