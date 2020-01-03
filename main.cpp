@@ -4,11 +4,11 @@
 #include <limits>
 struct TString{
     static const int n = 66;
-    char str[n];
+    char str[n]{};
     TString(){
         memset(str, 0, n);
     };
-    TString(const char* const s){
+    explicit TString(const char* const s){
         int i;
         for(i = 0; i < n - 1 && i < strlen(s); ++i){
             str[i] = s[i];
@@ -30,13 +30,13 @@ std::ostream& operator<< (std::ostream& out, TString s){
 struct TData{
     TData() = default;
     TData(int key_, char* str) : key(key_), value(str){}
-    int key;
+    long int key = 0;
     TString value;
 };
 
 
 int main() {
-    int key;char str[TString::n];
+    long int key;char str[TString::n];
     TVector<TData> v;
     int max = INT_MIN;
     while(std::cin >> key >> str){
